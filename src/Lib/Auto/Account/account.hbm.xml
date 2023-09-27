@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="Lib.Auto.Account">
+
+<sql-query name="accountSearchQuery">
+	SELECT  access_no,title,author_name,issue_date,due_date,return_date,doc_type,fine_amount FROM jhistory where 2>1 
+</sql-query>
+
+<sql-query name="accountIssueSearchQuery">
+	SELECT  access_no,title,author_name,issue_date,due_date,doc_type FROM issuedbooks where 2>1 
+</sql-query>
+
+<sql-query name="accountPaidDetailsQuery">
+	select bill_no,member_code,amount,Payment_date from payment_clearance where 2>1 
+</sql-query>
+
+<sql-query name="accountReserveSearchQuery">
+	SELECT  access_no,title,author_name,res_date,availability,doc_type FROM reservedbooks where 2>1 
+</sql-query>
+
+<sql-query name="registerLoadSearchQuery">
+	SELECT member_code,member_name,dept_name,course_name,course_major,in_time,desig_name FROM Entry_log_view 
+</sql-query>
+
+<sql-query name="callEntryLog">
+	SELECT * from entry_log
+</sql-query>
+
+<sql-query name="saveReturnLog">
+	insert into return_log(member_code,entry_time,return_time,min_used,in_time,out_time,branchCode,purpose)values(:member,:entryTime,:returnTime,:min,:inTime,:outTime,:branchCode,:purpose)
+</sql-query>
+
+<sql-query name="deleteEntryLog">
+	delete from entry_log
+</sql-query>
+
+
+</hibernate-mapping>
+

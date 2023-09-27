@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="Lib.Auto.AccessionRegister">
+
+<!-- <class name="accessbean" table="miss_no" lazy="false"><id name="accessno" column="Access_No" type="java.lang.String"><generator class="assigned"/> </id></class> -->
+</hibernate-mapping>

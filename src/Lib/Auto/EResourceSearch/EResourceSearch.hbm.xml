@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="Lib.Auto.NewsClipSearch">
+
+<sql-query name="EResourcesimpleSearchQuery">
+
+	SELECT 
+	w.CODE, 
+	w.website, 
+	w.webdetails, 
+	w.webtitle, 
+	w.websubtitle, 
+	w.webtype,b.branch_name,b.branch_code
+	FROM web_mas w
+	join branch_mas b on(w.branch_code=b.branch_code)
+	where 2>1
+
+</sql-query>
+
+</hibernate-mapping>
+

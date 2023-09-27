@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Gate_Register" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ab105f98-7e61-4c31-a6f8-e461e69a9a33">
+	<property name="ireport.zoom" value="1.610510000000005"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="All_Query" class="java.lang.String"/>
+	<parameter name="ReportTitle" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="CMP_ADD" class="java.lang.String"/>
+	<parameter name="CMP_NAME" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[$P!{All_Query}]]>
+	</queryString>
+	<field name="member_code" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="member_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dsname" class="java.lang.String"/>
+	<field name="in_time" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="out_time" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="min_used" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="entry_time" class="java.sql.Date"/>
+	<field name="return_time" class="java.sql.Date"/>
+	<variable name="sumofmin" class="java.lang.Integer" resetType="Group" resetGroup="Return_Date" calculation="Sum">
+		<variableExpression><![CDATA[$F{min_used}]]></variableExpression>
+	</variable>
+	<variable name="tot_min" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{min_used}]]></variableExpression>
+	</variable>
+	<group name="Return_Date">
+		<groupExpression><![CDATA[$F{return_time}]]></groupExpression>
+		<groupHeader>
+			<band height="23">
+				<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement x="36" y="3" width="100" height="20" uuid="6c8ddc11-befc-4c75-9ed6-2e2a0daf40c9"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" isBold="true" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{return_time}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="5" y="3" width="32" height="20" uuid="d268dc65-1050-4c53-829e-0f961c96cf17"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Date: ]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="29">
+				<textField>
+					<reportElement x="495" y="1" width="55" height="20" uuid="e404bf49-a5f9-4b6a-ab74-f9908eaa849f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Verdana" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sumofmin}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="28" width="555" height="1" uuid="eecc3234-c533-4b79-877c-6ec3e88438a2"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="77" splitType="Stretch">
+			<rectangle>
+				<reportElement key="rectangle-1" x="5" y="2" width="545" height="56" uuid="c1c80988-afbd-45eb-8e16-533e8e5d40a5"/>
+			</rectangle>
+			<textField>
+				<reportElement x="62" y="7" width="477" height="20" uuid="0c4cf571-44aa-4a7c-8823-4c5d095ab342"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CMP_NAME}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement key="image-1" x="7" y="4" width="55" height="51" uuid="edfcebd8-9fee-4b1d-bd67-60fc090df082"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<imageExpression><![CDATA[new java.io.ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64($P{logo}.getBytes()))]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="100" y="32" width="421" height="20" uuid="652a0222-0b5c-491d-8b0f-36f310162833"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CMP_ADD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="44" y="57" width="454" height="20" uuid="5bae0700-b118-482e-93d4-ab60afbca332"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ReportTitle}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="445" y="0" width="43" height="20" uuid="84f05126-7c85-433f-92a9-ab01ccef4778"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date : ]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="486" y="0" width="68" height="20" uuid="ad7cbae9-2640-494d-ba59-cb0b877638f1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<rectangle>
+				<reportElement x="0" y="0" width="554" height="21" uuid="cc0041d4-5323-4552-aa08-1e0cc0898779"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="1" y="1" width="30" height="20" uuid="dbfa34c3-31fe-4753-8773-568e87fda1ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[S.No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="1" width="101" height="20" uuid="30c74cd6-f9d3-48b8-890a-d903513fbdf5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[User Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="1" width="102" height="20" uuid="246fcde4-632a-4614-ac99-f5b9797dcf1b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[User ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="384" y="1" width="58" height="20" uuid="798ad8a8-a610-4b30-aa09-58d26982de81"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[In Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="445" y="1" width="43" height="20" uuid="21fecf04-458c-4c9f-9f51-662b0c26d4d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Out Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="492" y="1" width="60" height="20" uuid="fd614e00-8869-43bd-a441-7d856a79e161"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Min Spent]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="1" width="97" height="20" uuid="c8d55f2b-6e7d-4ac9-b944-08510b3b0ec7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Designation]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="162" y="0" width="99" height="20" uuid="5a4136a5-6a2f-45d1-aed5-cca7d5734fab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{member_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="0" width="94" height="20" uuid="f0ab24a7-82f1-4a91-a749-3f84205c40f0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dsname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="384" y="0" width="55" height="20" uuid="9239b20d-9cc6-4326-b5eb-14fd37debae1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{in_time}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="0" width="38" height="20" uuid="09baa89e-8fc9-4ba9-9d13-b38ddb7cbc07"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{out_time}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="495" y="0" width="55" height="20" uuid="5a6f568f-6058-4b14-ba72-60c2c4c91a06"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{min_used}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="54" y="0" width="103" height="20" uuid="6b984171-4034-4535-9ca0-68bb372d38b9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{member_code}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="0" width="41" height="20" uuid="7dd74afc-c66e-4bd0-b644-d26838e461c3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="488" y="19" width="67" height="20" uuid="ea974222-8a6f-4a5c-b357-27e27c559e1f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{tot_min}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="402" y="17" width="80" height="20" uuid="8082eb74-bddb-467b-8555-4ef082d1b6b5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Minutes]]></text>
+			</staticText>
+			<line>
+				<reportElement x="466" y="16" width="89" height="1" uuid="b42ba80f-66d2-45ef-b0cb-9c9969baf685"/>
+			</line>
+			<line>
+				<reportElement x="466" y="36" width="89" height="1" uuid="a7b8210d-a673-4332-92b3-9a74ad287d8c"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>
