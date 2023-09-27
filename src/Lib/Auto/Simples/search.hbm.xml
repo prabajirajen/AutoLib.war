@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="Lib.Auto.Simples">
+
+<sql-query name="simpleSearchQuery">
+
+	SELECT  access_no,call_no,title,author_name,location,availability,document,availability,branch_name,edition,year_pub FROM full_search where 2>1
+
+</sql-query>
+
+</hibernate-mapping>
+

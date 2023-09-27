@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="Lib.Auto.Journal_Artical">
+
+<sql-query name="JournalArticleSearchQuery">
+
+	SELECT
+        j.jnl_name,
+        j.Atl_Title,
+        j.Atl_Author,
+        j.Atl_Subject,
+        j.Atl_Keywords,
+        j.Atl_Abstract,
+        j.Atl_Page_Nos,
+        j.Atl_No,
+        j.Vol_No,
+        j.Issue_No,
+        j.Issue_Year,
+        j.Issue_Month,
+        b.branch_name     
+    FROM
+        journal_articles j          
+    JOIN
+        branch_mas b 
+            ON (
+                j.branch_code=b.branch_code
+            )   
+    WHERE
+        2>1 
+
+</sql-query>
+
+
+</hibernate-mapping>
+
+
+

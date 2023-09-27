@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Library_Collection" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="efc09515-43f1-4d57-8d47-aaf7e8124901">
+	<property name="ireport.zoom" value="1.3310000000000053"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CMP_ADD" class="java.lang.String"/>
+	<parameter name="CMP_NAME" class="java.lang.String"/>
+	<parameter name="ReportTitle" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="All_Query" class="java.lang.String"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[$P!{All_Query}]]>
+	</queryString>
+	<field name="Document" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Volumes" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Title" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="111" splitType="Stretch">
+			<rectangle>
+				<reportElement key="rectangle-1" x="13" y="7" width="532" height="67" uuid="701d4186-5562-433e-a9f9-e64e09f04323"/>
+			</rectangle>
+			<textField>
+				<reportElement x="94" y="22" width="448" height="20" uuid="c676f51d-a67a-451a-a7e5-0b3970bdf476"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CMP_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="94" y="50" width="449" height="20" uuid="883933a7-00ed-4e74-a665-7f0e24a664b3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CMP_ADD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="94" y="89" width="379" height="20" uuid="8e3e842c-51bc-4e7e-9436-79c059f788fa"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ReportTitle}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame" isLazy="true">
+				<reportElement isPrintRepeatedValues="false" x="15" y="9" width="72" height="63" uuid="e62fc296-6ceb-4c9f-8c84-d5e4f907aa2d"/>
+				<imageExpression><![CDATA[new java.io.ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64($P{logo}.getBytes()))]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="28">
+			<line>
+				<reportElement x="87" y="25" width="398" height="1" uuid="9c1a3618-c5dd-4657-8bbc-7d8b99f47bb2"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="108" y="5" width="100" height="20" uuid="b5ced7c5-f19b-4618-a33c-71a268017c3b"/>
+				<textElement>
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Document]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="216" y="7" width="142" height="20" uuid="1ae8d1af-205e-4ee1-8c6d-e8d68e38ef3c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total No.of Volume]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="359" y="5" width="122" height="20" uuid="0f6ec82f-0dd5-465b-9bd3-f17681c07d93"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total No.of Title]]></text>
+			</staticText>
+			<line>
+				<reportElement x="87" y="-3" width="1" height="35" uuid="4a7603f4-1e79-4984-94ed-e722b45aeab5"/>
+			</line>
+			<line>
+				<reportElement x="218" y="-1" width="1" height="33" uuid="dd4ca5bf-5700-4167-bbc1-27844b0cd2f6"/>
+			</line>
+			<line>
+				<reportElement x="355" y="-2" width="1" height="34" uuid="6b7a1f74-9e43-45ba-a710-99930eb9497f"/>
+			</line>
+			<line>
+				<reportElement x="485" y="-3" width="1" height="36" uuid="ccfb78a7-6d41-437a-9607-775d4f532bd0"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="108" y="13" width="100" height="20" uuid="f9d4eb19-266e-4f86-b0eb-882a2b6232ce"/>
+				<textElement>
+					<font fontName="Verdana" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Document}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="13" width="100" height="20" uuid="960fd06b-3413-4385-b9b3-825b78999fae"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Volumes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="13" width="100" height="20" uuid="7bd26b13-aaa6-4c4f-b74b-a07463cc25d7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Title}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="88" y="0" width="398" height="1" uuid="b456fd27-c2e1-4f5d-801f-a31f6e623595"/>
+			</line>
+			<line>
+				<reportElement x="87" y="0" width="1" height="41" uuid="126b1d04-7678-4fac-8db5-ae40d463b973"/>
+			</line>
+			<line>
+				<reportElement x="218" y="0" width="1" height="41" uuid="19207913-8e8c-44da-b7b8-a874c6349994"/>
+			</line>
+			<line>
+				<reportElement x="355" y="0" width="1" height="41" uuid="5c7efa93-6d54-4f6c-a182-3667dad6e511"/>
+			</line>
+			<line>
+				<reportElement x="485" y="0" width="1" height="41" uuid="a69093d5-78e1-47d0-b00a-4c9d0052b98e"/>
+			</line>
+			<line>
+				<reportElement x="87" y="40" width="398" height="1" uuid="d1b74eb6-4212-4608-b86a-66c3ad8f49db"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="23"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="31" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

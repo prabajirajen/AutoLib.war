@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Issue_Report" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1ba43834-a9df-472b-86ae-048084f46fcd">
+	<property name="ireport.zoom" value="1.4641000000000048"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CMP_NAME" class="java.lang.String"/>
+	<parameter name="CMP_ADD" class="java.lang.String"/>
+	<parameter name="ReportTitle" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="All_Query" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[$P!{All_Query}]]>
+	</queryString>
+	<field name="title" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="access_no" class="java.lang.String"/>
+	<field name="epc_id" class="java.lang.String"/>
+	<field name="document" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="96" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="f109c5b1-ea5d-4a97-8942-44cb20701376" key="rectangle-1" x="52" y="8" width="452" height="56"/>
+			</rectangle>
+			<textField>
+				<reportElement uuid="b5664196-4197-4eee-ad1a-d50cc089255e" x="124" y="16" width="303" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CMP_NAME}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="a992b81e-0753-4ed3-9b86-c414ccd3204f" key="image-1" x="55" y="11" width="68" height="51"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<imageExpression><![CDATA["/logo/reportcollege.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="5b6fb37c-e1aa-4348-987a-fd071381571e" x="123" y="44" width="304" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CMP_ADD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d33e34fd-ebcf-4d9a-8b99-02a88016c534" x="124" y="76" width="303" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ReportTitle}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="26" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="bd886fe2-0312-41b3-8b5b-f4c420bab98d" x="484" y="0" width="70" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2d23cd70-8ba2-4a91-8fc1-05b9f6775ca8" x="440" y="0" width="52" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date : ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="8dd1a5ac-6414-4a46-8d35-80d7a0bd104b" x="0" y="1" width="555" height="28"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="93952295-76a5-404c-9583-a046fbd96a64" x="305" y="4" width="67" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Title]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="cb37ec68-2cf4-4c22-8029-f148b84a50bb" x="35" y="1" width="1" height="28"/>
+			</line>
+			<line>
+				<reportElement uuid="c6002079-6c06-476b-8d74-6e7a71475019" x="225" y="1" width="1" height="28"/>
+			</line>
+			<staticText>
+				<reportElement uuid="69969f5a-5a6c-461c-b204-0c6c7a7a5bfe" x="2" y="8" width="33" height="16"/>
+				<textElement>
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[S.No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6428d897-fea0-489b-89c6-38e7617b539d" x="37" y="4" width="60" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Access.No]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="9a81df26-f9b9-43fe-b9a3-1e1bedebe4d1" x="97" y="1" width="1" height="28"/>
+			</line>
+			<line>
+				<reportElement uuid="2eb6ecdf-5207-4a07-837a-e5faf5650156" x="457" y="1" width="1" height="28"/>
+			</line>
+			<staticText>
+				<reportElement uuid="e5a3218d-1ed2-4adf-ab30-5090d75fcfde" x="466" y="4" width="80" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Doc_Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="718e0866-d0e7-4f8c-b068-617ab95e0c57" x="112" y="4" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Epc_Id]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<line>
+				<reportElement uuid="fdf5a086-257a-462a-971c-07f440ac9429" stretchType="RelativeToTallestObject" x="0" y="-2" width="1" height="27" isPrintWhenDetailOverflows="true"/>
+			</line>
+			<line>
+				<reportElement uuid="d153152e-30df-4a5a-8f38-17fc07f679b5" stretchType="RelativeToTallestObject" x="225" y="0" width="1" height="25" isPrintWhenDetailOverflows="true"/>
+			</line>
+			<line>
+				<reportElement uuid="646b3ca6-0266-4a16-b1a1-3982e33ac9f5" stretchType="RelativeToTallestObject" x="35" y="-1" width="1" height="26" isPrintWhenDetailOverflows="true"/>
+			</line>
+			<line>
+				<reportElement uuid="3a5e9114-1bda-4bda-9c7a-922a915e5a67" stretchType="RelativeToTallestObject" x="554" y="0" width="1" height="25" isPrintWhenDetailOverflows="true"/>
+			</line>
+			<line>
+				<reportElement uuid="2d64415c-7c6b-41af-ab15-af393a673145" positionType="Float" x="0" y="24" width="555" height="1" isPrintWhenDetailOverflows="true"/>
+			</line>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement uuid="692fe0a7-86dd-4467-8413-d10a92d89add" stretchType="RelativeToTallestObject" x="252" y="2" width="180" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="48259cae-5985-42c1-bd65-86963b1aa8ca" stretchType="RelativeToTallestObject" x="0" y="3" width="35" height="18" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="23fcce56-da3f-43a3-bf95-7b56bede421e" stretchType="RelativeToTallestObject" x="37" y="2" width="60" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{access_no}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="35397985-9b83-428c-abf0-7ae2f034dcc1" stretchType="RelativeToTallestObject" x="97" y="0" width="1" height="25" isPrintWhenDetailOverflows="true"/>
+			</line>
+			<line>
+				<reportElement uuid="130bb75b-4a89-49e4-9f87-133a3802ae4a" stretchType="RelativeToTallestObject" x="457" y="0" width="1" height="25" isPrintWhenDetailOverflows="true"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a95c7f2b-ca20-49c5-ab43-ab636328db61" stretchType="RelativeToTallestObject" x="466" y="2" width="80" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{document}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e8d38847-bbc0-48b8-99a1-0c93cc8c4be8" x="102" y="2" width="120" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Verdana" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{epc_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="26">
+			<textField>
+				<reportElement uuid="8e901ce0-584a-4182-90d1-603b40c72ed9" x="244" y="4" width="100" height="21"/>
+				<textElement>
+					<font fontName="Verdana"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
